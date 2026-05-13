@@ -1,32 +1,32 @@
 @font-face {
   font-family: "Pretendard";
-  src: url("/font/Pretendard-Regular.otf") format("opentype");
+  src: url("font/Pretendard-Regular.otf") format("opentype");
   font-weight: 400;
 }
 @font-face {
   font-family: "Pretendard";
-  src: url("/font/Pretendard-Medium.otf") format("opentype");
+  src: url("font/Pretendard-Medium.otf") format("opentype");
   font-weight: 500;
 }
 @font-face {
   font-family: "Pretendard";
-  src: url("/font/Pretendard-Light.otf") format("opentype");
+  src: url("font/Pretendard-Light.otf") format("opentype");
   font-weight: 300;
 }
 @font-face {
   font-family: "PPEditorialNew";
-  src: url("/font/PPEditorialNew-Regular.otf") format("opentype");
+  src: url("font/PPEditorialNew-Regular.otf") format("opentype");
   font-weight: 400;
 }
 @font-face {
   font-family: "PPEditorialNew";
-  src: url("/font/PPEditorialNew-Italic.otf") format("opentype");
+  src: url("font/PPEditorialNew-Italic.otf") format("opentype");
   font-weight: 400;
   font-style: italic;
 }
 @font-face {
   font-family: "PPEditorialNew";
-  src: url("/font/PPEditorialNew-Ultrabold.otf") format("opentype");
+  src: url("font/PPEditorialNew-Ultrabold.otf") format("opentype");
   font-weight: 800;
 }
 
