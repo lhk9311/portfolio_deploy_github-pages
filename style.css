@@ -1,0 +1,1886 @@
+@font-face {
+  font-family: "Pretendard";
+  src: url("/font/Pretendard-Regular.otf") format("opentype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("/font/Pretendard-Medium.otf") format("opentype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("/font/Pretendard-Light.otf") format("opentype");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "PPEditorialNew";
+  src: url("/font/PPEditorialNew-Regular.otf") format("opentype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "PPEditorialNew";
+  src: url("/font/PPEditorialNew-Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "PPEditorialNew";
+  src: url("/font/PPEditorialNew-Ultrabold.otf") format("opentype");
+  font-weight: 800;
+}
+
+/* tokens.json — responsive/Desktop 값 기준 CSS 변수 (디자인 토큰명과 동일) */
+
+:root {
+  --color-accent-main: #21a0aa;
+  --color-accent-sub: #f94f46;
+  --color-accent-bright: #fdcb2a;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-gray: #5d5d5d;
+
+  --font-family-Montserrat: Montserrat, sans-serif;
+  --font-family-pretendard: pretendard, -apple-system, BlinkMacSystemFont,
+    system-ui, sans-serif;
+  /* tokens.json font-family "pp-editorial-new" — 웹: Playfair Display 로드 (HTML Google Fonts) */
+  --font-family-pp-editorial-new: "Playfair Display", Georgia, serif;
+
+  --font-section-main-title: 150px;
+  --font-text-box-sub-title: 45px;
+  --font-text-box-sub-text: 13.5px;
+  --font-edu-list-text: 16.5px;
+  --font-deco-title: 45px;
+  --font-kr-text: 13.5px;
+
+  --padding-top-about: 200px;
+  --padding-bottom-about: 120px;
+  --padding-horizontal-deco-title: 52.5px;
+  --padding-top-deco-title: 22.5px;
+  --padding-bottom-deco-title: 15px;
+
+  --gap-about-main-text: 54px;
+  --gap-about-bottom-box: 49.5px;
+  --gap-teamproject-left-box-text-box: 12px;
+
+  --radius-small-title-box: 25.5px;
+
+  --rotate-skill-text-3: -2;
+  --rotate-skill-text-1: 0;
+  --rotate-skill-text-2: 5;
+  --rotate-skill-text-4: 4;
+  --rotate-skill-text-5: 0;
+  --rotate-skill-text-6: 0;
+  --rotate-skill-text-7: -3;
+
+  --font-skill-text: 75px;
+  --padding-top-skill-text: 30px;
+  --padding-bottom-skill-text: 15px;
+  --padding-horizontal-skill-text: 75px;
+  --padding-vertical-skill: 150px;
+  --lineheight-skill-text: 75px;
+  --radius-skill-text: 60px;
+  --height-skill-frame: 1028.25px;
+
+  /* Figma Desktop `desktop-section-skill` 메타 — tokens.json에 없는 프레임 치수 */
+  --height-desktop-section-skill: 1380px;
+  --padding-horizontal-skill-text: 45px;
+  --width-skill-text-1: 285px;   /* JAVA */
+  
+  --width-skill-text-2: 600px;   /* SPRING BOOT */
+  --width-skill-text-3: 558.75px;   /* JAVASCRIPT */
+  --width-skill-text-4: 360px;   /* REACT */
+  --width-skill-text-5: 435px;   /* ORACLE */
+  --width-skill-text-6: 690px;   /* DOCKER / AWS */
+
+
+  /* Figma Desktop `desktop-section-about` 메타(프레임 치수) — tokens.json 전용 width 토큰 없음 */
+  --height-desktop-section-about: 951.75px;
+  --width-about-section-main-title: 324px;
+  --min-height-about-section-main-title: 172.5px;
+  --width-paper-airplane-frame: 99.75px;
+  --height-paper-airplane-frame: 75px;
+  --width-about-bottom-bot: 693.75px;
+  --width-edu-title-area: 148.5px;
+  /* about-inner: section-main-title(높이 245) → about-main-text(y=341) 간격 */
+  --gap-about-title-to-main-text: 72px;
+
+  --width-container: 1440px;
+  --width-container-inner: 1305px;
+  --width-header: 1305px;
+  --width-header-logo: 169.5px;
+  --width-section: 1305px;
+  --width-section-inner: 1305px;
+  --width-hero-img: 562.5px;
+  --width-teamproject-left-box: 410.25px;
+  --width-teamproject-right-box: 355.5px;
+  --width-teamproject-list: 1080px;
+  --width-teamproject-title: 1080px;
+  --width-teamproject-img-girl: 585.75px;
+  --width-teamproject-sun: 147px;
+  --width-small-title-box: 1080px;
+  --width-teamproject-left-box-text-box: 407.25px;
+
+  /* Figma Desktop 프레임 메타(node 21:15~21:21) — tokens.json에 없는 레이아웃 치수 */
+  --width-header-half: calc(var(--width-section-inner) / 2);
+  --width-hero-main-title: 654.75px;
+  --width-hero-sub-text: 300px;
+  --padding-left-hero-sub-text-inner: 0px;
+  --width-hero-sub-text-inner: 300px;
+  --height-desktop-section-hero-figma: 615px;
+  --min-height-hero-inner-figma: 409.5px;
+
+  --font-hero-main-tiltle: 118.5px;
+  --font-big-caption: 13.5px;
+  --font-en-text: 18px;
+  --font-edu-title: 21px;
+
+  --padding-vertical-header: 15px;
+  --padding-top-hero: 36px;
+  --padding-top-hero-main-title: 99px;
+
+  --gap-hero-inner: 276.75px;
+  --gap-small-title-box: 24px;
+  --gap-section-text-box: 6px;
+  --gap-about-edu-text: 7.5px;
+  --gap-about-inner: 60px;
+
+  --padding-top-project: 45px;
+  --padding-bottom-project: 0px;
+  --gap-project-inner: 60px;
+
+  --padding-top-teamproject: 60px;
+  --padding-bottom-teamproject: 0px;
+  --padding-vertical-small-title-box: 88.5px;
+  --padding-vertical-teamproject-list: 42.75px;
+  --padding-horizontal-teamproject-list: 60px;
+
+  --gap-teamproject: 60px;
+  --gap-teamproject-box: 63px;
+  --gap-teamproject-left-box: 21px;
+  --gap-small-sub-box: 6px;
+
+  --font-small-main-title: 99px;
+  --font-small-sub-tilte: 22.5px;
+  --font-small-sub-text: 13.5px;
+  --font-num-title: 75px;
+  --font-project-name: 30px;
+  --font-small-caption: 12px;
+
+  --radius-teamproject-list-box: 22.5px;
+
+  /* Figma `teamproject-img` 프레임 — tokens에 높이 없음 */
+  --height-teamproject-illustration: 695.25px;
+  --height-teamproject-img-girl: 581.25px;
+  --height-teamproject-sun: 145.5px;
+  --height-teamproject-list-mockup: 275.25px;
+
+  --width-contact: 1440px;
+  --width-contact-inner: 1305px;
+  --padding-top-contact: 105px;
+  --padding-bottom-contact: 105px;
+  --padding-horizontal-tel: 75px;
+  --padding-top-tel: 30px;
+  --padding-bottom-tel: 15px;
+  --lineheight-contact-tel: 75px;
+
+  /* Figma `desktop-section-contact` — 토큰에 없는 치수 */
+  --height-desktop-section-contact: 792px;
+  --width-contact-section-main-title: 867.75px;
+  --width-contact-sub-title: 662.25px;
+  --width-contact-sub-text: 371.25px;
+  --width-contact-tel-box: 578.25px;
+  --height-contact-tel-box: 120px;
+  --gap-contact-inner-stack: 60px;
+  --rotate-contact-deco-title: 15;
+
+  --height-section-hero: 891px;
+  --height-hero-img: 525px;
+
+  /* Figma Desktop `desktop-section-project` — tokens에 없는 치수·간격 */
+  --height-desktop-section-project: 301.5px;
+  --width-project-section-main-title: 867.75px;
+  --min-height-project-section-main-title: 183.75px;
+  --width-project-sub-title: 802.5px;
+  --width-project-sub-text: 300px;
+  /* project-inner: section-main-title(높이 245) → section-text-box(y=341) 간격 */
+  --gap-project-title-to-textbox: 72px;
+  /* STUDENT 배지 기울기 — Figma 시각 기준(토큰에 rotate 없음) */
+  --rotate-project-deco-title: -10;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  font-family: var(--font-family-Montserrat);
+}
+
+/* ---------- desktop-header ---------- */
+
+.desktop-header {
+  width: 100%;
+  max-width: var(--width-container);
+  margin-inline: auto;
+  background-color: var(--color-white);
+}
+
+.desktop-header .desktop-header-inner {
+  width: min(100%, var(--width-section-inner));
+  max-width: var(--width-header);
+  margin-inline: auto;
+  padding-top: var(--padding-vertical-header);
+  padding-bottom: var(--padding-vertical-header);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.desktop-header .logo {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.desktop-header .logo-text {
+  display: inline-block;
+  font-family: var(--font-family-Montserrat);
+  font-weight: 700;
+  font-size: var(--font-edu-title);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: var(--color-accent-main);
+}
+
+.desktop-header .gnb {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0;
+  gap: var(--gap-about-inner);
+}
+
+.desktop-header .gnb-link {
+  font-family: var(--font-family-Montserrat);
+  font-weight: 600;
+  font-size: var(--font-en-text);
+  line-height: 1.25;
+  color: var(--color-black);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.desktop-header .gnb-link:hover {
+  color: var(--color-accent-main);
+}
+
+/* ---------- desktop-section-hero ---------- */
+
+/* 교체 */
+.desktop-section-hero {
+  position: relative;
+  width: 100%;
+  max-width: var(--width-container);
+  margin-inline: auto;
+  background-color: var(--color-white);
+  overflow: hidden;
+}
+
+/* hero-inner — flex 방향 유지하되 텍스트 영역 max-width 조정 */
+.desktop-section-hero .hero-inner {
+  width: min(100%, var(--width-section-inner));
+  max-width: var(--width-section);
+  margin-inline: auto;
+  padding-top: var(--padding-top-hero);
+  padding-bottom: 80px;       /* 이미지 높이 여유 */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: var(--gap-hero-inner);
+}
+
+
+/* 수정 */
+.desktop-section-hero .hero-main-title {
+  flex: 1 1 auto;        /* 고정값 제거 */
+  max-width: 654.75px;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: var(--padding-top-hero-main-title);
+}
+
+.desktop-section-hero .hero-main-title-text {
+  margin: 0;
+  font-family: var(--font-family-Montserrat);
+  font-weight: 900;
+  font-size: var(--font-hero-main-tiltle);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: var(--color-black);
+}
+
+.desktop-section-hero .hero-sub-text {
+  flex: 0 0 var(--width-hero-sub-text);
+  width: var(--width-hero-sub-text);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.desktop-section-hero .hero-sub-text-body {
+  margin: 0;
+  padding-left: var(--padding-left-hero-sub-text-inner);
+  max-width: var(--width-hero-sub-text-inner);
+  font-family: var(--font-family-Montserrat);
+  font-weight: 500;
+  font-size: var(--font-big-caption);
+  line-height: calc(var(--font-big-caption) + var(--gap-about-edu-text));
+  text-align: right;
+  color: var(--color-gray);
+}
+
+/* position 토큰 변수 미사용 — Figma hero-img 프레임 기준 픽셀 직접 입력 */
+
+/* hero-img — right 기준으로 위치, 텍스트 영역과 안 겹치게 */
+.desktop-section-hero .hero-img {
+  position: absolute;
+  right: max(0px, calc((100vw - 1305px) / 2));  /* 기존 유지 */
+  /* 아래 값을 음수로 줄수록 더 오른쪽으로 */
+  right: 0px;  /* 원하는 만큼 조절 */
+  top: 0px;
+  width: min(562.5px, 38vw);
+  height: auto;
+}
+
+.desktop-section-hero .hero-img-vector {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ---------- desktop-section-about ---------- */
+
+.desktop-section-about {
+  width: 100%;
+  max-width: var(--width-container);
+  margin-inline: auto;
+  min-height: var(--height-desktop-section-about);
+  padding-top: var(--padding-top-about);
+  padding-bottom: 60px;
+  background-color: var(--color-white);
+}
+
+.desktop-section-about .about-inner {
+  width: min(100%, var(--width-section-inner));
+  max-width: var(--width-section);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-about-title-to-main-text);
+}
+
+.desktop-section-about .section-main-title {
+  position: relative;
+  width: var(--width-about-section-main-title);
+  min-height: var(--min-height-about-section-main-title);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* position 변수 미사용 — Figma 메타(section-deco-title) 기준 px */
+.desktop-section-about .section-deco-title {
+  position: absolute;
+  left: -81.75px;
+  top: -48px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-left: var(--padding-horizontal-deco-title);
+  padding-right: var(--padding-horizontal-deco-title);
+  padding-top: var(--padding-top-deco-title);
+  padding-bottom: var(--padding-bottom-deco-title);
+  background-color: var(--color-accent-main);
+  border-radius: var(--radius-small-title-box);
+  transform: rotate(calc(var(--rotate-skill-text-3) * 1deg));
+}
+
+.desktop-section-about .section-deco-title-text {
+  font-family: var(--font-family-pp-editorial-new);
+  font-weight: 700;
+  font-size: var(--font-deco-title);
+  line-height: 1.1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+.desktop-section-about .about-me-title {
+  margin: 0;
+  font-family: var(--font-family-Montserrat);
+  font-weight: 900;
+  font-size: var(--font-section-main-title);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--color-black);
+  text-align: center;
+}
+
+/* position 변수 미사용 — Figma 메타(paper-airplane 1 프레임) 기준 px */
+.desktop-section-about .paper-airplane-1 {
+  position: absolute;
+  left: 273.75px;
+  top: 146.25px;
+  width: var(--width-paper-airplane-frame);
+  height: var(--height-paper-airplane-frame);
+}
+
+.desktop-section-about .paper-airplane-1-img {
+  display: block;
+  width: var(--width-paper-airplane-frame);
+  height: var(--height-paper-airplane-frame);
+  object-fit: contain;
+}
+
+.desktop-section-about .about-main-text {
+  width: 100%;
+  max-width: var(--width-section-inner);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-about-main-text); /* section-text-box ↔ about-bottom-bot (Figma y 간격 72) */
+}
+
+.desktop-section-about .section-text-box {
+  width: 100%;
+  max-width: var(--width-section-inner);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-section-text-box);
+  text-align: center;
+}
+
+.desktop-section-about .sub-title {
+  width: 100%;
+  max-width: var(--width-section-inner);
+}
+
+.desktop-section-about .sub-title-en {
+  margin: 0;
+  font-family: var(--font-family-pp-editorial-new);
+  font-size: var(--font-text-box-sub-title);
+  line-height: 1.25;
+  color: var(--color-black);
+}
+
+.desktop-section-about .sub-title-en-quote {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.desktop-section-about .sub-title-en-strong {
+  font-style: normal;
+  font-weight: 700;
+}
+
+.desktop-section-about .sub-text {
+  width: 100%;
+  max-width: var(--width-section-inner);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.desktop-section-about .sub-text-kr {
+  margin: 0;
+  max-width: var(--width-teamproject-left-box-text-box);
+  font-family: var(--font-family-pretendard);
+  font-size: var(--font-text-box-sub-text);
+  line-height: calc(var(--font-text-box-sub-text) + var(--gap-about-edu-text));
+  color: var(--color-gray);
+}
+
+.desktop-section-about .about-bottom-bot {
+  width: 100%;
+  max-width: var(--width-about-bottom-bot);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--gap-about-bottom-box);
+}
+
+.desktop-section-about .edu-title {
+  flex: 0 0 var(--width-edu-title-area);
+  width: var(--width-edu-title-area);
+}
+
+.desktop-section-about .edu-title-text {
+  margin: 0;
+  font-family: var(--font-family-pp-editorial-new);
+  font-weight: 600;
+  font-size: var(--font-edu-title);
+  line-height: 1.25;
+  color: var(--color-black);
+}
+
+.desktop-section-about .edu-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-about-edu-text);
+}
+
+.desktop-section-about .edu-list {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--gap-teamproject-left-box-text-box);
+}
+
+.desktop-section-about .check-icon {
+  flex-shrink: 0;
+  margin-top: calc(var(--gap-about-edu-text) / 2);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.desktop-section-about .check-icon img {
+  display: block;
+  width: 10.5px;
+  height: auto;
+}
+
+.desktop-section-about .edu-list-text {
+  margin: 0;
+  font-family: var(--font-family-pretendard);
+  font-size: var(--font-edu-list-text);
+  line-height: calc(var(--font-edu-list-text) + var(--gap-about-edu-text));
+  color: var(--color-black);
+  text-align: left;
+}
+
+/* ---------- desktop-section-skill (Figma `Frame 1` = .frame-1) ---------- */
+
+.desktop-section-skill {
+  width: 100%;
+  max-width: var(--width-container);
+  margin-inline: auto;
+  background-color: var(--color-white);
+  padding-bottom: 100px;
+}
+
+.desktop-section-skill .frame-1 {
+  position: relative;
+  width: min(100%, var(--width-section-inner));
+  max-width: var(--width-section);
+  min-height: var(--height-skill-frame);
+  margin-inline: auto;
+}
+
+/* position 변수 미사용 — tokens.json `responsive/Desktop` position 값과 동일한 px 직접 기입 */
+
+.desktop-section-skill .skill-icon1 {
+  position: absolute;
+  left: 232.5px;
+  top: 153.75px;
+  z-index: 1;
+  width: 93.75px;
+  height: 93px;
+}
+
+.desktop-section-skill .skill-icon2 {
+  position: absolute;
+  left: 105px;
+  top: 131.25px;
+  z-index: 1;
+  width: 107.25px;
+  height: 96.75px;
+}
+
+.desktop-section-skill .skill-icon3 {
+  position: absolute;
+  left: 157.5px;
+  top: 432px;
+  z-index: 1;
+  width: 108px;
+  height: 103.5px;
+}
+
+.desktop-section-skill .skill-icon4 {
+  position: absolute;
+  left: 101.25px;
+  top: 533.25px;
+  z-index: 1;
+  width: 171.75px;
+  height: 147px;
+}
+
+.desktop-section-skill .skill-icon5 {
+  position: absolute;
+  left: 207.75px;
+  top: 834px;
+  z-index: 1;
+  width: 75.75px;
+  height: 97.5px;
+}
+
+.desktop-section-skill .skill-icon1-img,
+.desktop-section-skill .skill-icon2-img,
+.desktop-section-skill .skill-icon3-img,
+.desktop-section-skill .skill-icon4-img,
+.desktop-section-skill .skill-icon5-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.desktop-section-skill .skill-text-1,
+.desktop-section-skill .skill-text-2,
+.desktop-section-skill .skill-text-3,
+.desktop-section-skill .skill-text-4,
+.desktop-section-skill .skill-text-5,
+.desktop-section-skill .skill-text-6,
+.desktop-section-skill .skill-text-7 {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-white);
+  border: 0.75px solid var(--color-black);
+  border-radius: var(--radius-skill-text);
+  padding-top: var(--padding-top-skill-text);
+  padding-bottom: var(--padding-bottom-skill-text);
+  padding-left: var(--padding-horizontal-skill-text);
+  padding-right: var(--padding-horizontal-skill-text);
+  box-sizing: border-box;
+}
+
+.desktop-section-skill .skill-text-body {
+  margin: 0;
+  font-family: var(--font-family-pp-editorial-new);
+  font-weight: 700;
+  font-size: var(--font-skill-text);
+  line-height: var(--lineheight-skill-text);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--color-black);
+}
+
+.desktop-section-skill .skill-text-1 {
+  left: 499.5px;
+  top: 38.25px;
+  width: var(--width-skill-text-1);
+  transform: rotate(calc(var(--rotate-skill-text-1) * 1deg));
+}
+
+.desktop-section-skill .skill-text-2 {
+  left: 387px;
+  top: 120px;
+  width: var(--width-skill-text-2);
+  transform: rotate(calc(var(--rotate-skill-text-2) * 1deg));
+}
+
+.desktop-section-skill .skill-text-3 {
+  left: 424.5px;
+  top: 304.5px;
+  width: var(--width-skill-text-3);
+  transform: rotate(calc(var(--rotate-skill-text-3) * 1deg));
+}
+
+.desktop-section-skill .skill-text-4 {
+  left: 462.75px;
+  top: 420.75px;
+  width: var(--width-skill-text-4);
+  transform: rotate(calc(var(--rotate-skill-text-4) * 1deg));
+}
+
+.desktop-section-skill .skill-text-5 {
+  left: 353.25px;
+  top: 540px;
+  width: var(--width-skill-text-5);
+  transform: rotate(calc(var(--rotate-skill-text-5) * 1deg));
+}
+
+.desktop-section-skill .skill-text-6 {
+  left: 274.5px;
+  top: 645px;
+  width: var(--width-skill-text-6);
+  transform: rotate(calc(var(--rotate-skill-text-6) * 1deg));
+}
+
+
+/* ---------- desktop-section-project ---------- */
+
+.desktop-section-project {
+  width: 100%;
+  max-width: var(--width-container);
+  margin-inline: auto;
+  min-height: var(--height-desktop-section-project);
+  padding-top: var(--padding-top-project);
+  padding-bottom: var(--padding-bottom-project);
+  background-color: var(--color-white);
+}
+
+/* ① project-inner — padding-top 늘려서 배지 공간 확보 */
+.desktop-section-project .project-inner {
+  width: min(100%, var(--width-section-inner));
+  max-width: var(--width-section);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-project-title-to-textbox);
+  padding-top: 120px;   /* ← 배지(-105.75px) 튀어나올 공간 */
+}
+
+/* 수정 */
+.desktop-section-project .section-main-title {
+  position: relative;
+  width: 100%;           /* 고정 width 제거 */
+  max-width: 900px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* position 변수 미사용 — tokens.json `position-project-deco-title` 값과 동일 px */
+.desktop-section-project .section-deco-title {
+  position: absolute;
+  left: -67.5px;
+  top: -105.75px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-left: var(--padding-horizontal-deco-title);
+  padding-right: var(--padding-horizontal-deco-title);
+  padding-top: var(--padding-top-deco-title);
+  padding-bottom: var(--padding-bottom-deco-title);
+  background-color: var(--color-accent-sub);
+  border-radius: var(--radius-small-title-box);
+  transform: rotate(calc(var(--rotate-project-deco-title) * 1deg));
+}
+
+.desktop-section-project .section-deco-title-text {
+  font-family: var(--font-family-Montserrat);
+  font-weight: 800;
+  font-size: var(--font-deco-title);
+  line-height: 1.1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+.desktop-section-project .project-main-title {
+  margin: 0;
+  font-family: var(--font-family-Montserrat);
+  font-weight: 900;
+  font-size: var(--font-section-main-title);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--color-black);
+}
+
+.desktop-section-project .section-text-box {
+  width: 100%;
+  max-width: var(--width-section-inner);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-section-text-box);
+}
+
+.desktop-section-project .sub-title {
+  width: 100%;
+  max-width: var(--width-section-inner);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.desktop-section-project .project-sub-title-en {
+  margin: 0;
+  max-width: var(--width-project-sub-title);
+  font-family: var(--font-family-pp-editorial-new);
+  font-size: var(--font-text-box-sub-title);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.28;
+  text-align: center;
+  color: var(--color-black);
+}
+
+.desktop-section-project .sub-text {
+  width: 100%;
+  max-width: var(--width-section-inner);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.desktop-section-project .project-sub-text-kr {
+  margin: 0;
+  max-width: var(--width-project-sub-text);
+  font-family: var(--font-family-pretendard);
+  font-size: var(--font-text-box-sub-text);
+  line-height: calc(var(--font-text-box-sub-text) + var(--gap-about-edu-text));
+  text-align: center;
+  color: var(--color-black);
+}
+
+/* ---------- desktop-section-teamproject ---------- */
+
+.desktop-section-teamproject {
+  width: 100%;
+  max-width: var(--width-container);
+  margin-inline: auto;
+  padding-top: var(--padding-top-teamproject);
+  padding-bottom: calc(
+    var(--padding-bottom-teamproject) + var(--gap-teamproject-box)
+  );
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-teamproject);
+}
+
+/* 상단 일러스트 (Figma `teamproject-img`) */
+.desktop-section-teamproject .teamproject-img {
+  position: relative;
+  width: min(100%, var(--width-section-inner));
+  max-width: var(--width-section);
+  min-height: var(--height-teamproject-illustration);
+  margin-inline: auto;
+}
+
+/* position 변수 미사용 — Figma 메타 `teamproject-img-girl` 기준 px */
+.desktop-section-teamproject .teamproject-img-girl {
+  position: absolute;
+  left: 360px;
+  top: 57px;
+  width: var(--width-teamproject-img-girl);
+  height: var(--height-teamproject-img-girl);
+  object-fit: contain;
+}
+
+/* position 변수 미사용 — Figma 메타 `team-img-sun` 기준 px */
+.desktop-section-teamproject .team-img-sun {
+  position: absolute;
+  left: 831px;
+  top: 0;
+  width: var(--width-teamproject-sun);
+  height: var(--height-teamproject-sun);
+}
+
+.desktop-section-teamproject .team-img-sun-vector {
+  display: block;
+  width: var(--width-teamproject-sun);
+  height: var(--height-teamproject-sun);
+  object-fit: contain;
+}
+
+.desktop-section-teamproject .teamproject-box {
+  width: min(100%, var(--width-section-inner));
+  max-width: var(--width-section);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-teamproject-box);
+}
+
+.desktop-section-teamproject .small-title-box {
+  width: 100%;
+  max-width: var(--width-small-title-box);
+  margin-inline: auto;
+  padding-top: var(--padding-vertical-small-title-box);
+  padding-bottom: var(--padding-vertical-small-title-box);
+  padding-left: var(--padding-horizontal-teamproject-list);
+  padding-right: var(--padding-horizontal-teamproject-list);
+  background-color: var(--color-black);
+  border-radius: var(--radius-teamproject-list-box);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-small-title-box);
+  text-align: center;
+}
+
+.desktop-section-teamproject .small-main-title {
+  width: 100%;
+}
+
+.desktop-section-teamproject .small-main-title-text {
+  margin: 0;
+  font-family: var(--font-family-pp-editorial-new);
+  font-weight: 700;
+  font-size: var(--font-small-main-title);
+  line-height: 1.1;
+  color: var(--color-white);
+}
+
+.desktop-section-teamproject .small-sub-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-small-sub-box);
+  max-width: var(--width-teamproject-title);
+}
+
+.desktop-section-teamproject .small-sub-title-text {
+  margin: 0;
+  font-family: var(--font-family-Montserrat);
+  font-weight: 600;
+  font-size: var(--font-small-sub-tilte);
+  line-height: 1.25;
+  color: var(--color-white);
+}
+
+.desktop-section-teamproject .small-sub-text-body {
+  margin: 0;
+  max-width: var(--width-teamproject-title);
+  font-family: var(--font-family-pretendard);
+  font-size: var(--font-small-sub-text);
+  line-height: calc(var(--font-small-sub-text) + var(--gap-about-edu-text));
+  color: var(--color-white);
+  opacity: 0.92;
+}
+
+.desktop-section-teamproject .teamproject-list {
+  width: 100%;
+  max-width: var(--width-teamproject-list);
+  margin-inline: auto;
+  padding-top: var(--padding-vertical-teamproject-list);
+  padding-bottom: var(--padding-vertical-teamproject-list);
+  padding-left: var(--padding-horizontal-teamproject-list);
+  padding-right: var(--padding-horizontal-teamproject-list);
+  background-color: var(--color-white);
+  border: 0.75px solid var(--color-black);
+  border-radius: var(--radius-teamproject-list-box);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--gap-teamproject-left-box);
+}
+
+.desktop-section-teamproject .left-box {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: var(--width-teamproject-left-box);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-teamproject-left-box);
+}
+
+.desktop-section-teamproject .num-title-text {
+  margin: 0;
+  font-family: var(--font-family-Montserrat);
+  font-weight: 800;
+  font-size: var(--font-num-title);
+  line-height: 1;
+  color: var(--color-accent-main);
+}
+
+.desktop-section-teamproject .text-box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-teamproject-left-box-text-box);
+}
+
+.desktop-section-teamproject .title-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--gap-teamproject-left-box);
+}
+
+.desktop-section-teamproject .title-text {
+  margin: 0;
+  font-family: var(--font-family-Montserrat);
+  font-weight: 700;
+  font-size: var(--font-project-name);
+  line-height: 1.2;
+  color: var(--color-black);
+}
+
+.desktop-section-teamproject .big-caption-text {
+  margin: 0;
+  font-family: var(--font-family-Montserrat);
+  font-weight: 500;
+  font-size: var(--font-big-caption);
+  line-height: 1.2;
+  color: var(--color-gray);
+}
+
+.desktop-section-teamproject .en-text-body {
+  margin: 0;
+  max-width: var(--width-teamproject-left-box-text-box);
+  font-family: var(--font-family-pretendard);
+  font-size: var(--font-en-text);
+  line-height: calc(var(--font-en-text) + var(--gap-about-edu-text));
+  color: var(--color-black);
+}
+
+.desktop-section-teamproject .kr-text-body {
+  margin: 0;
+  max-width: var(--width-teamproject-left-box-text-box);
+  font-family: var(--font-family-pretendard);
+  font-size: var(--font-kr-text);
+  line-height: calc(var(--font-kr-text) + var(--gap-about-edu-text));
+  color: var(--color-black);
+}
+
+.desktop-section-teamproject .caption-text {
+  margin: 0;
+  font-family: var(--font-family-Montserrat);
+  font-weight: 600;
+  font-size: var(--font-small-caption);
+  line-height: 1.2;
+  color: var(--color-gray);
+}
+
+.desktop-section-teamproject .teamproject-list-mockup-wrap {
+  flex: 0 0 var(--width-teamproject-right-box);
+  width: var(--width-teamproject-right-box);
+  height: var(--height-teamproject-list-mockup);
+  border-radius: var(--radius-teamproject-list-box);
+  overflow: hidden;
+}
+
+.desktop-section-teamproject .teamproject-list-mockup {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- desktop-section-uiux (Figma 스텁 — 상세 마크업 전) ---------- */
+
+.desktop-section-uiux {
+  margin: 0;
+  padding: 0;
+  min-height: 0;
+}
+
+.desktop-section-uiux .uiux-inner {
+  min-height: 0;
+}
+
+/* ---------- desktop-section-contact ---------- */
+
+.desktop-section-contact {
+  width: 100%;
+  margin-inline: auto;
+  min-height: 0;              /* 고정 높이 제거 */
+  padding-top: 60px;          /* 105px → 60px */
+  padding-bottom: 60px;       /* 105px → 60px */
+  background-color: var(--color-black);
+}
+
+.desktop-section-contact .contact-inner {
+  width: min(100%, var(--width-contact-inner));
+  max-width: var(--width-contact-inner);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;                  /* 60px → 32px */
+}
+
+.desktop-section-contact .section-main-title {
+  position: relative;
+  width: 100%;           /* 고정 width 제거 */
+  max-width: 900px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: visible;
+}
+
+/* position 변수 미사용 — Figma 메타 `section-deco-title`(CONTACT 타이틀 기준) px */
+.desktop-section-contact .section-deco-title {
+  position: absolute;
+  left: 649.5px;
+  top: -97.5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-left: var(--padding-horizontal-deco-title);
+  padding-right: var(--padding-horizontal-deco-title);
+  padding-top: var(--padding-top-deco-title);
+  padding-bottom: var(--padding-bottom-deco-title);
+  background-color: var(--color-accent-sub);
+  border-radius: var(--radius-small-title-box);
+  transform: rotate(calc(var(--rotate-contact-deco-title) * 1deg));
+}
+
+.desktop-section-contact .section-deco-title-text {
+  font-family: var(--font-family-pp-editorial-new);
+  font-weight: 700;
+  font-size: var(--font-deco-title);
+  line-height: 1.1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+.desktop-section-contact .contact-main-title {
+  margin: 0;
+  font-family: var(--font-family-Montserrat);
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--color-white);
+}
+
+.desktop-section-contact .section-text-box {
+  width: 100%;
+  max-width: var(--width-contact-inner);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-section-text-box);
+}
+
+.desktop-section-contact .sub-title {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.desktop-section-contact .contact-sub-title-en {
+  margin: 0;
+  max-width: var(--width-contact-sub-title);
+  font-family: var(--font-family-pp-editorial-new);
+  font-size: var(--font-text-box-sub-title);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.28;
+  text-align: center;
+  color: var(--color-white);
+}
+
+.desktop-section-contact .sub-text {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.desktop-section-contact .contact-sub-text-kr {
+  margin: 0;
+  max-width: var(--width-contact-sub-text);
+  font-family: var(--font-family-pretendard);
+  font-size: var(--font-kr-text);
+  line-height: calc(var(--font-kr-text) + var(--gap-about-edu-text));
+  text-align: center;
+  color: var(--color-white);
+}
+
+.desktop-section-contact .contact-tel {
+  width: 100%;
+  max-width: var(--width-contact-tel-box);
+  min-height: var(--height-contact-tel-box);
+  padding-top: var(--padding-top-tel);
+  padding-bottom: var(--padding-bottom-tel);
+  padding-left: var(--padding-horizontal-tel);
+  padding-right: var(--padding-horizontal-tel);
+  background-color: var(--color-accent-bright);
+  border-radius: var(--radius-teamproject-list-box);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.desktop-section-contact .contact-tel-number {
+  margin: 0;
+  font-family: var(--font-family-pp-editorial-new);
+  font-weight: 700;
+  font-size: 36px;   /* 75px → 36px */
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: var(--color-black);
+}
+
+.about-info-grid {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.about-info-item {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  align-items: baseline;
+}
+
+.about-info-label {
+  font-family: "Pretendard", sans-serif;
+  font-weight: 700;
+  font-size: 10.5px;
+  color: var(--color-gray);
+  min-width: 45px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.about-info-value {
+  font-family: "Pretendard", sans-serif;
+  font-size: 13.5px;
+  color: var(--color-black);
+}
+
+.about-info-link {
+  font-family: var(--font-family-pretendard);
+  font-size: 15px;
+  color: var(--color-accent-main);
+  text-decoration: none;
+}
+
+.about-info-link:hover {
+  text-decoration: underline;
+}
+
+.about-section-block {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  width: 100%;
+  max-width: 675px;
+}
+
+.about-career {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  width: 100%;
+  max-width: 675px;
+}
+
+.about-content {
+  width: 100%;
+  max-width: 1305px;
+  display: flex;
+  flex-direction: row;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+/* 수정 */
+.about-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 65px;
+  justify-content: space-between;  /* ← 이거 추가 */
+}
+
+.about-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;          /* 45px → 30px */
+  align-self: flex-start;
+}
+
+.about-info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.about-block-title {
+  margin: 0;
+  font-family: var(--font-family-Montserrat);
+  font-weight: 800;
+  font-size: 10.5px;
+  letter-spacing: 0.15em;
+  color: var(--color-accent-main);
+  border-bottom: 1.5px solid var(--color-accent-main);
+  padding-bottom: 6px;
+}
+
+.about-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.about-info-item {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.about-info-label {
+  font-family: var(--font-family-Montserrat);
+  font-weight: 700;
+  font-size: 10.5px;
+  color: var(--color-gray);
+  min-width: 45px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.about-info-value {
+  font-family: var(--font-family-pretendard);
+  font-size: 13.5px;
+  color: var(--color-black);
+}
+
+.about-info-link {
+  font-family: var(--font-family-pretendard);
+  font-size: 13.5px;
+  color: var(--color-accent-main);
+  text-decoration: none;
+}
+
+.about-info-link:hover {
+  text-decoration: underline;
+}
+
+.about-career-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.about-career-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.career-company {
+  margin: 0;
+  font-family: var(--font-family-pretendard);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--color-black);
+}
+
+.career-period {
+  margin: 0;
+  font-family: var(--font-family-Montserrat);
+  font-size: 10.5px;
+  color: var(--color-gray);
+  letter-spacing: 0.05em;
+}
+
+.career-desc {
+  margin: 0;
+  font-family: var(--font-family-pretendard);
+  font-size: 12px;
+  color: var(--color-gray);
+  line-height: 1.6;
+}
+
+.about-contact-wrap {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.about-profile-img {
+  width: 120px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.career-period {
+  display: inline-block;
+  margin: 0;
+  font-family: var(--font-family-Montserrat);
+  font-size: 9px;
+  color: var(--color-accent-main);
+  border: 0.75px solid var(--color-accent-main);
+  border-radius: 15px;
+  padding: 1.5px 9px;
+  letter-spacing: 0.05em;
+}
+
+.career-title-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4.5px;
+}
+
+.career-period {
+  display: inline-block;
+  width: fit-content;
+  margin: 0;
+  font-family: var(--font-family-Montserrat);
+  font-size: 9px;
+  color: var(--color-white);
+  background-color: var(--color-accent-main);
+  border-radius: 15px;
+  padding: 2.25px 9px;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.etc-cert-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+}
+
+.etc-cert-item {
+  font-family: "Pretendard", sans-serif;
+  font-size: 12px;
+  color: var(--color-gray);
+}
+
+.etc-cert-item:not(:last-child)::after {
+  content: "·";
+  margin-left: 12px;
+}
+
+.desktop-section-techstack {
+  width: 100%;
+  max-width: var(--width-container);
+  margin-inline: auto;
+  padding-top: 90px;
+  padding-bottom: 60px;
+  background-color: var(--color-white);
+}
+
+.techstack-inner {
+  width: min(100%, 1050px);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1.5px solid var(--color-black);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.techstack-label {
+  flex: 0 0 165px;
+  padding: 24px 30px;
+  font-family: var(--font-family-Montserrat);
+  font-weight: 800;
+  font-size: 13.5px;
+  color: var(--color-white);
+  background-color: var(--color-accent-main);
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.05em;
+}
+
+.techstack-value {
+  flex: 1;
+  padding: 24px 30px;
+  font-family: "Pretendard", sans-serif;
+  font-size: 15px;
+  color: var(--color-black);
+  line-height: 1.7;
+  display: flex;
+  align-items: center;
+}
+
+.techstack-row {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  border-bottom: 0.75px solid #e0e0e0;
+}
+
+.skill-inner {
+  width: min(100%, var(--width-section-inner));
+  margin-inline: auto;
+  padding: 30px 67.5px 60px 67.5px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.skill-card {
+  border: 1.5px solid var(--color-black);
+  border-radius: 15px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.skill-card-title {
+  margin: 0;
+  font-family: var(--font-family-Montserrat);
+  font-weight: 800;
+  font-size: 15px;
+  color: var(--color-accent-main);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-bottom: 1.5px solid var(--color-accent-main);
+  padding-bottom: 9px;
+}
+
+.skill-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.skill-tag {
+  font-family: "Pretendard", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-black);
+  background-color: #f5f5f5;
+  border-radius: 15px;
+  padding: 4.5px 12px;
+}
+
+.skill-section-title {
+  position: relative;
+  width: min(100%, var(--width-section-inner));
+  margin-inline: auto;
+  padding-top: 60px;
+  /* 비행기(99.75px) + 여백 뒤에 SKILLS 텍스트가 오도록 */
+  padding-left: calc(67.5px + var(--width-paper-airplane-frame) + 24px);
+  padding-right: 67.5px;
+}
+
+.skill-main-title {
+  margin: 0;
+  font-family: var(--font-family-Montserrat);
+  font-weight: 900;
+  font-size: 75px;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--color-black);
+}
+
+/* About `paper-airplane-1`과 동일 에셋 — SKILLS 왼쪽, 좌우 반전 */
+.skill-section-title .paper-airplane {
+  position: absolute;
+  top: calc(50% + 24px);
+  left: 67.5px;
+  width: var(--width-paper-airplane-frame);
+  height: var(--height-paper-airplane-frame);
+  object-fit: contain;
+  transform: translateY(-32%) scaleX(-1);
+  pointer-events: none;
+}
+
+section {
+  opacity: 1;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+/*section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+*/
+.hero-btn {
+  display: inline-block;
+  margin-top: 32px;
+  padding: 16px 40px;
+  background-color: var(--color-accent-main);
+  color: var(--color-white);
+  font-family: var(--font-family-pretendard);
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 40px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: var(--color-black);
+  transform: translateY(-3px);
+}
+
+.desktop-section-hero .hero-sub-text-body {
+  margin: 0;
+  margin-top: 40px;
+  font-family: var(--font-family-pretendard);
+  font-size: 20px;
+  color: var(--color-gray);
+  line-height: 1.7;
+  text-align: left;
+  padding-left: 0;
+  max-width: none;
+}
+
+.hero-links {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.hero-link {
+  font-family: var(--font-family-pretendard);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-gray);
+  text-decoration: none;
+  border-bottom: 2px solid var(--color-gray);
+  padding-bottom: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.hero-link:hover {
+  color: var(--color-accent-main);
+  border-color: var(--color-accent-main);
+}
+
+/* hero-btn margin-top 제거 */
+.hero-btn {
+  display: inline-block;
+  margin-top: 0;          /* 32px → 0 */
+  padding: 16px 40px;
+  background-color: var(--color-accent-main);
+  color: var(--color-white);
+  font-family: var(--font-family-pretendard);
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 40px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  white-space: nowrap;    /* ← 줄바꿈 방지 추가 */
+}
+
+/* hero-btn-outline margin 제거 */
+.hero-btn-outline {
+  display: inline-block;
+  margin-top: 0;          /* 32px → 0 */
+  margin-left: 0;         /* 16px → 0 (gap으로 대체) */
+  padding: 16px 40px;
+  white-space: nowrap;
+  background-color: transparent;
+  color: var(--color-black);
+  font-family: var(--font-family-pretendard);
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 40px;
+  border: 2px solid var(--color-black);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.hero-btn-outline:hover {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  transform: translateY(-3px);
+}
+
+.hero-btn-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.desktop-section-contact {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.desktop-section-contact .contact-inner {
+  gap: 20px;
+}
+
+.desktop-section-contact .contact-tel {
+  width: fit-content;
+  min-width: 580px;
+  min-height: 96px;
+  padding: 20px 56px;
+  border-radius: 22px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-inline: auto;
+}
+
+.desktop-section-contact .contact-tel-number {
+  font-size: 40px;
+}
+
+.desktop-section-contact .contact-sub-title-en {
+  font-size: 28px;
+}
+
+.desktop-section-contact .section-deco-title {
+  top: -60px;
+  left: 520px;
+  transform: rotate(10deg) scale(0.8);
+}
+
+.desktop-section-contact .contact-tel-number {
+  font-size: 40px;
+  line-height: 1;
+  text-align: center;
+}
+
+.scroll-top-btn {
+  position: fixed !important;
+  bottom: 40px !important;
+  right: 40px !important;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-accent-main);
+  color: var(--color-white);
+  border: none;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 9999 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.scroll-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-top-btn:hover {
+  background-color: var(--color-black);
+  transform: translateY(-3px);
+}
+
+
+/* teamproject-link 밑줄 제거 */
+a.teamproject-link {
+  text-decoration: none;
+  color: inherit;
+}
+a.teamproject-link:hover {
+  text-decoration: none;
+}
+
+/* project-badge-group */
+.project-badge-group {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.project-badge {
+  display: inline-block;
+  font-family: var(--font-family-Montserrat);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--color-black);
+  border: 1.5px solid var(--color-black);
+  border-radius: 20px;
+  padding: 5px 14px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.project-badge:hover {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  text-decoration: none;
+}
+.project-badge--blog {
+  border-color: var(--color-accent-main);
+  color: var(--color-accent-main);
+}
+.project-badge--blog:hover {
+  background-color: var(--color-accent-main);
+  color: var(--color-white);
+}
+
+/* SISEON 카드 mockup 이미지 크기 조정 */
+.desktop-section-teamproject .teamproject-list-mockup-wrap {
+  flex: 0 0 460px;
+  width: 460px;
+  height: 355px;
+}
+
+/* mockup 이미지 잘림 방지 */
+.desktop-section-teamproject .teamproject-list-mockup {
+  object-fit: contain;
+  background-color: #f5f5f5;
+}
+
+/* 프로젝트 타입 뱃지 */
+.project-type-badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-family-Montserrat);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.project-type-badge--team {
+  background-color: #FDCB2A;
+  color: #000000;
+}
+.project-type-badge--personal {
+  background-color: #854F0B;
+  color: #FAEEDA;
+}
